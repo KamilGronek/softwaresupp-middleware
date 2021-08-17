@@ -29,8 +29,9 @@ W rezultacie po przejściu całego procesu, klient może wejść na dysk google 
 email: recruitment.appzapier@gmail.com
 hasło: appzapier100
 
-### Link do Zapiera z gotowym flow: ogólny: https://zapier.com/shared/c2a75e7577764aefcffe2e687ad56f662c3fa039
+### Link do Zapiera z gotowym flow: 
 
+ogólny: https://zapier.com/shared/c2a75e7577764aefcffe2e687ad56f662c3fa039
 do flow: https://zapier.com/app/editor/130640598/nodes/130640598/sample
 
 ### Żądanie jakie musi wysłać na serwer Node.js
