@@ -35,7 +35,7 @@ ogólny: https://zapier.com/shared/c2a75e7577764aefcffe2e687ad56f662c3fa039
 
 do flow: https://zapier.com/app/editor/130640598/nodes/130640598/sample
 
-### Żądanie jakie musi wysłać na serwer Node.js
+### Żądanie jakie musi wysłać na serwer Node.js:
 
 url: localhost:80/api/project-board,
 method: post,
@@ -49,9 +49,9 @@ body:
 "password": "test123456"
 }
 
-## Uruchomienie aplikacji create-react-app:
+## Uruchomienie aplikacji:
 
-Po pobraniu pliku do instalacji środowsika node.modules, w terminalu należy wpisać:
+Po pobraniu pliku do instalacji środowiska node.modules, w terminalu należy wpisać:
 
 ```bash
 npm install
@@ -63,7 +63,7 @@ Do uruchomienia aplikacji w terminalu w głównej ścieżce projektu, należy wp
 node server.js
 ```
 
-## Uwaga
+## Uwaga:
 
 Po wysłaniu żadania na endpoint project board, w celu sprawdzenia poprawnej integracji ze wszystkimi aplikacjami należy zalogować się na gmaila, wejśc na dysk Google i sprawdzić
 zawartość wypełnionych plików:
