@@ -1,41 +1,41 @@
-# Wprowadzenie:
+# Introduction:
 
-Celem aplikacji jest "Przeanalizowanie platformy SoftwareSupp po kontem zarządzania projektem oraz stworzenie serwisu który umożliwiałby taką synchronizację. Istnieje narzędzie, które znacząco ułatwia tego typu rozwiązania - Zapier(https://zapier.com/), pozwala ono na tworzenie różnego typu triggerów, i działa jako pośrednik pomiędzy dwoma encjami, w Naszym przypadku, pomiędzy platformą SoftwareSupp, oraz narzędziem klienta.
-W głównej mierze chodzi aby umożliwić wysłanie informacji o wszelkich zmianach w project board do Zapier (REST API), oraz obsługa tych zapytań w tym toolu tak aby klient miał możliwość podłączenia się".
+The purpose of the application is "Analyzing the SoftwareSupp platform after the project management account and creating a service that would enable such synchronization. There is a tool that significantly facilitates this type of solution - Zapier (https://zapier.com/), it allows you to create various types of triggers, and acts as an intermediary between two entities, in our case, between the SoftwareSupp platform and the client tool.
+It is mainly about enabling sending information about any changes in the project board to Zapier (REST API), and handling these queries in this tool so that the client has the ability to connect."
 
-## Technologie:
+## Technologies:
 
 -React: 17.0.2,
 -Node: 12.16.1,
 
-## Konstrukcja:
+## Construction:
 
-Serwer node.js udostępnia jeden endpoint -project board. Celem endpointa jest integracja
-z aplikacją Software Supp project board, zapier (Web Hook). Aby zintegrować się, Software Supp,
-używamy endpointa logowania, po to aby uzyskać access token. Następnie pobieramy dane przez
-endpoint, który umożliwia nam pobranie pozycji z project board. Jako ostatni krok, wysyłamy uzyskane dane do Zapier Web Hook.
+The node.js server provides one endpoint -project board. The goal of the endpoint is integration
+with Software Supp project board, zapier (Web Hook). To integrate, Software Supp,
+we use login endpoint to get access token. Then we fetch the data via
+endpoint, which allows us to download items from the project board. As the last step, we send the obtained data to Zapier Web Hook.
 
-## Ogólny flow:
+## Overall flow:
 
-Klient wysyła żądanie do naszej aplikacji Node.js. Następnie aplikacja Node.js pobiera dane z aplikacji Softwaresupp a następnie wysyła te dane do Zapier Web Hook.
-Zapier Web Hook zaczyna wykonywanie kroków skonfigurowanych przez użytkownika. Poszczególne kroki takie jak zapis danych do Word i Excel. Na sam koniec pliki zostają edytowane
-na dysku google lub są zapisane jako nowe.
-W rezultacie po przejściu całego procesu, klient może wejść na dysk google i pobrać sobie pliki wypełnione danymi z aplikacji SoftwareSupp.
+The client sends a request to our Node.js application. The Node.js app then fetches data from the Softwaresupp app and then sends that data to Zapier Web Hook.
+The Zapier Web Hook starts executing the user-configured steps. Individual steps such as saving data to Word and Excel. Finally, the files are edited
+on google drive or are saved as new.
+As a result, after going through the entire process, the client can go to google drive and download files filled with data from the SoftwareSupp application.
 
-## Konfigurowanie środowiska
+## Setting up the environment
 
-### Dane do gmaila (dysk google)
+### gmail data (google drive)
 
 email: recruitment.appzapier@gmail.com
-hasło: appzapier100
+password: appzapier100
 
-### Link do Zapiera z gotowym flow: 
+### Link to Zapier with ready flow:
 
-ogólny: https://zapier.com/shared/c2a75e7577764aefcffe2e687ad56f662c3fa039
+generic: https://zapier.com/shared/c2a75e7577764aefcffe2e687ad56f662c3fa039
 
-do flow: https://zapier.com/app/editor/130640598/nodes/130640598/sample
+to flow: https://zapier.com/app/editor/130640598/nodes/130640598/sample
 
-### Żądanie jakie musi wysłać na serwer Node.js:
+### The request it needs to send to the Node.js server:
 
 url: localhost:80/api/project-board,
 method: post,
@@ -49,24 +49,24 @@ body:
 "password": "test123456"
 }
 
-## Uruchomienie aplikacji:
+## Running the application:
 
-Po pobraniu pliku do instalacji środowiska node.modules, w terminalu należy wpisać:
+After downloading the file for installation of the node.modules environment, enter the following in the terminal:
 
 ```bash
 npm install
 ```
 
-Do uruchomienia aplikacji w terminalu w głównej ścieżce projektu, należy wpisać:
+To run the application in the terminal in the main project path, enter:
 
 ```bash
-node server.js
+nodeserver.js
 ```
 
-## Uwaga:
+## Attention:
 
-Po wysłaniu żadania na endpoint project board, w celu sprawdzenia poprawnej integracji ze wszystkimi aplikacjami należy zalogować się na gmaila, wejśc na dysk Google i sprawdzić
-zawartość wypełnionych plików:
+After sending the request to the endpoint project board, in order to check the correct integration with all applications, log in to gmail, enter Google drive and check
+content of completed files:
 excel - "recruitment app zapier test excel",
 word - "recruitment app zapier test word".
-Będą one zawierały dane z Software Supp.
+They will contain data from Software Supp.
